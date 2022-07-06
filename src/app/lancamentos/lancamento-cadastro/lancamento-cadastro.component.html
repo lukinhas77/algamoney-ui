@@ -1,0 +1,71 @@
+<div class="container">
+    <form>
+
+        <div class="grid">
+            <div class="col-12">
+                <h1>Novo Lançamento</h1>
+            </div>
+            <div class="col-12">
+                <p-selectButton [options]="tipos" #tipo></p-selectButton>
+            </div>
+            <div class="p-lg-6 p-md-3 p-fluid">
+                <label>Vencimento</label>
+                <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="true" ngModel #vencimento="ngModel" name="calendario" nullvalidator="required"></p-calendar>      
+            </div>   
+            <div  class="p-lg-6 p-md-3 p-fluid">
+                <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
+                <p-calendar dateFormat="dd/mm/yy" [inline]="false" [readonlyInput]="false" [showIcon]="true"></p-calendar>  
+            </div>     
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-md-9 p-fluid">
+                <label>Descrição</label>
+                <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5">
+
+                <app-message [control]="descricao" error="required" text="Informe uma descrição" name="teste"></app-message>
+                <app-message [control]="descricao" error="minlength" text="Mínimo de 5 caracteres." name="teste2"></app-message> 
+
+
+                <!--<div *ngIf="descricao.hasError('required') && descricao.dirty" class="p-error">
+                    Informe uma descrição
+                </div> 
+                <div *ngIf="descricao.hasError('minlength') && descricao.dirty" class="p-error">
+                    Mínimo de 5 caracteres.
+                </div>-->
+            </div>
+
+            <div class="p-lg-12 p-md-3 p-fluid">
+                <label>Valor</label>
+                <p-inputNumber mode="currency" currency="BRL" locale="BR" placeholder="0,00"></p-inputNumber>
+            </div>   
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-md-6 p-fluid">
+                <label>Categoria</label>
+                <p-dropdown [options]="categorias"  optionLabel="name" placeholder="Selecione" ngModel #categoria="ngModel" name="categoria"></p-dropdown>
+            </div>
+            <div class="p-lg-12 p-md-6 p-fluid">
+                <label>Pessoa</label>
+                <p-dropdown [options]="pessoas" [filter]="true" optionLabel="name" placeholder="Selecione" #pessoa name="pessoa"></p-dropdown>
+            </div>   
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-fluid">
+                <label>Observação</label>
+                <textarea pInputTextarea rows="3" style="width: 200%;"></textarea>
+            </div>     
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-4 p-md-4 ">
+                <button pButton type="submit" label="Salvar"></button>
+                <button pButton type="submit" label="Novo"></button>
+                <a href="javascript:;">Voltar para a pagina inicial</a>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,60 @@
+<div class="container">
+    <form>
+
+        <div class="grid">
+            <div class="col-12">
+                <h1>Nova Pessoa </h1>
+            </div>
+            <div class="p-lg-12 p-md-9 p-fluid">
+                <label>Nome</label>
+                <input pInputText type="text" ngModel #nome="ngModel" required name="nome">
+            </div> 
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-md-9 p-fluid">
+                <label>Logradouro</label>
+                <input pInputText type="text" ngModel #logradouro="ngModel" required name="logradouro">
+            </div>
+            <div class="p-lg-12 p-md-3 p-fluid">
+                <label>Número</label>
+                <p-inputNumber ngModel #numero="ngModel" name="numero" ></p-inputNumber>
+            </div>   
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-md-4 p-fluid">
+                <label>Complemento</label>
+                <input pInputText type="text">
+            </div>
+            <div class="p-lg-12 p-md-4 p-fluid">
+                <label>Bairro</label>
+                <input pInputText type="text" ngModel #bairro="ngModel" required name="bairro">
+            </div>   
+            <div class="p-lg-12 p-md-4 p-fluid">
+                <label>CEP</label>
+                <p-inputMask mask="99999-999" ngModel #cep="ngModel" name="cep"></p-inputMask>
+            </div> 
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-12 p-md-6 p-fluid">
+                <label>Cidade</label>
+                <input pInputText type="text" ngModel #cidade="ngModel" required name="cidade">
+            </div>    
+            <div class="p-lg-12 p-md-6 p-fluid">
+                <label>Estado</label>
+                <input pInputText type="text" ngModel #estado="ngModel" required name="estado">
+            </div>    
+        </div>
+
+        <div class="grid">
+            <div class="p-lg-4 p-md-4 ">
+                <button pButton type="submit" label="Salvar"></button>
+                <button pButton type="submit" label="Novo"></button>
+                <a href="javascript:;">Voltar para a pagina inicial</a>
+            </div>
+        </div>
+
+    </form>
+</div>
